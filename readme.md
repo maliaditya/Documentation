@@ -28,7 +28,7 @@ This project is a web page that allows users to load and view Markdown files wit
 1. Clone the repository to your local machine:
 
     ```bash
-    git clone https://github.com/your-username/markdown-viewer.git
+    git clone https://github.com/maliaditya/Documentation.git
     ```
 
 2. Open the project in Visual Studio Code or any other code editor.
