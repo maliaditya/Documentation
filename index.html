@@ -335,26 +335,33 @@
                 display: block;
             }
 
-            #toggle-md-files {
-                display: block;
-                background-color: transparent;
-                border: none;
-                cursor: pointer;
-                z-index: 3000;
-                position: fixed;
-                top: 10px;
-                left: 10px;
-            }
-
-            #toggle-md-files div {
-                width: 30px;
-                height: 3px;
-                background-color: #ffffff;
-                margin: 5px 0;
-                transition: 0.4s;
-            }
+        /* CSS for both toggle buttons */
+        #toggle-md-files, #toc-toggle {
+            display: block;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 3000;
+            position: fixed;
+            top: 10px;
+        }
+           #toggle-md-files div, #toc-toggle div {
+            width: 30px;
+            height: 3px;
+            background-color: #ffffff;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+             
+        }
+  /* Position adjustments for each button */
+        #toggle-md-files {
+            left: 10px;
         }
 
+        #toc-toggle {
+            right: 10px;
+        }
         #support-section {
             padding: 10px;
             margin-top: 20px;
@@ -418,6 +425,21 @@
     }
 
     #toggle-md-files div {
+        width: 20px;
+        height: 3px;
+        margin: 4px 0;
+        background-color: #ffffff;
+    }
+
+     #toc-toggle {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 3000;
+    }
+
+    #toc-toggle div {
         width: 20px;
         height: 3px;
         margin: 4px 0;
@@ -520,6 +542,12 @@
         </div>
        
     </div>
+
+      <button id="toc-toggle" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
 
     <div id="toc-sidebar">
         <h3>Table of Contents</h3>
@@ -624,8 +652,33 @@
             }
         });
 
-             const sidebarLinks = document.querySelectorAll('#sidebar a');
-    sidebarLinks.forEach(link => {
+        const toggleTocButton = document.getElementById('toc-toggle');
+        toggleTocButton.addEventListener('click', () => {
+            const tocSidebar = document.getElementById('toc-sidebar');
+            if (window.innerWidth <= 1200) {
+                tocSidebar.classList.toggle('overlay');
+                tocSidebar.classList.toggle('visible');
+            } else {
+                tocSidebar.style.display = tocSidebar.style.display === 'none' ? 'block' : 'none';
+            }
+        });
+
+
+// Hide TOC sidebar when clicking anywhere outside of it
+document.addEventListener('click', (event) => {
+    const tocSidebar = document.getElementById('toc-sidebar');
+    const toggleTocButton = document.getElementById('toc-toggle');
+    const isClickInsideTocSidebar = tocSidebar.contains(event.target);
+    const isClickOnToggleTocButton = toggleTocButton.contains(event.target);
+
+    if (!isClickInsideTocSidebar && !isClickOnToggleTocButton && window.innerWidth <= 1200 && tocSidebar.classList.contains('visible')) {
+        tocSidebar.classList.remove('overlay');
+        tocSidebar.classList.remove('visible');
+    }
+});
+
+    const sidebarLinks = document.querySelectorAll('#sidebar a');
+        sidebarLinks.forEach(link => {
         link.addEventListener('click', () => {
             const sidebar = document.getElementById('sidebar');
             if (window.innerWidth <= 1200 && sidebar.classList.contains('visible')) {
