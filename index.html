@@ -387,6 +387,101 @@
         #support-section a:hover {
             color: #ffffff;
         }
+
+        @media (max-width: 500px) {
+    body {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    #sidebar,
+    #toc-sidebar {
+        display: none;
+    }
+
+    #content {
+        padding: 10px;
+        width: 100%;
+    }
+
+    #preview {
+        padding: 15px;
+        font-size: 1em;
+        line-height: 1.5;
+    }
+
+    #toggle-md-files {
+        display: block;
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 3000;
+    }
+
+    #toggle-md-files div {
+        width: 20px;
+        height: 3px;
+        margin: 4px 0;
+        background-color: #ffffff;
+    }
+
+    #support-section {
+        padding: 8px;
+        font-size: 0.8em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2, h3, h4, h5, h6 {
+        font-size: 1.2em;
+    }
+
+    pre {
+        font-size: 1em;
+        padding: 15px;
+        overflow-x: auto;
+    }
+
+    code {
+        font-size: 1em;
+        padding: 3px 6px;
+    }
+
+    a {
+        font-size: 1em;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .preview-container {
+        padding: 10px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    #preview h1, #preview h2, #preview h3, #preview h4, #preview h5, #preview h6 {
+        font-size: 1.2em;
+        margin-bottom: 10px;
+    }
+
+    #preview p {
+        margin-bottom: 10px;
+    }
+
+    #preview ul {
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+
+    #preview li {
+        margin-bottom: 5px;
+    }
+}
     </style>
 </head>
 <body>
