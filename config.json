@@ -1,0 +1,25 @@
+{
+  "pageTitle": "Documentation",
+  "pageHeader": "Testing Documentation",
+  "utterances": {
+    "repo": "maliaditya/Documentation",
+    "issueTerm": "pathname",
+    "issueNumber": null,
+    "theme": "github-dark"
+  },
+  "default_markdown":"Coding Standards.md",
+  "markdownFiles": [
+    {
+      "fileName": "C++ Style Guide.md",
+      "displayName": "C++ Style Guide"
+    },
+    {
+      "fileName": "Commonly Used Types.md",
+      "displayName": "Commonly Used Types"
+    },
+    {
+      "fileName": "Coding Standards.md",
+      "displayName": "Coding Standards"
+    }
+  ]
+}
