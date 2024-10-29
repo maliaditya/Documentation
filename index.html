@@ -416,35 +416,28 @@
         line-height: 1.5;
     }
 
-    #toggle-md-files {
+    #toggle-md-files, #toc-toggle {
         display: block;
         position: fixed;
         top: 10px;
-        left: 10px;
         z-index: 3000;
     }
 
-    #toggle-md-files div {
+    #toggle-md-files div,#toc-toggle div {
         width: 20px;
         height: 3px;
         margin: 4px 0;
         background-color: #ffffff;
     }
 
-     #toc-toggle {
-        display: block;
-        position: fixed;
-        top: 10px;
-        left: 10px;
-        z-index: 3000;
-    }
+     /* Position adjustments for each button */
+        #toggle-md-files {
+            left: 10px;
+        }
 
-    #toc-toggle div {
-        width: 20px;
-        height: 3px;
-        margin: 4px 0;
-        background-color: #ffffff;
-    }
+        #toc-toggle {
+            right: 10px;
+        }
 
     #support-section {
         padding: 8px;
