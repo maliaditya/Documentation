@@ -609,17 +609,29 @@
         const toggleMdFilesButton = document.getElementById('toggle-md-files');
         toggleMdFilesButton.addEventListener('click', () => {
             const sidebar = document.getElementById('sidebar');
-            const tocSidebar = document.getElementById('toc-sidebar');
+            //const tocSidebar = document.getElementById('toc-sidebar');
             if (window.innerWidth <= 1200) {
                 sidebar.classList.toggle('overlay');
                 sidebar.classList.toggle('visible');
-                tocSidebar.classList.toggle('overlay');
-                tocSidebar.classList.toggle('visible');
+                //tocSidebar.classList.toggle('overlay');
+                //tocSidebar.classList.toggle('visible');
             } else {
                 sidebar.style.display = sidebar.style.display === 'none' ? 'block' : 'none';
-                tocSidebar.style.display = tocSidebar.style.display === 'none' ? 'block' : 'none';
+                //tocSidebar.style.display = tocSidebar.style.display === 'none' ? 'block' : 'none';
             }
         });
+
+             const sidebarLinks = document.querySelectorAll('#sidebar a');
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            const sidebar = document.getElementById('sidebar');
+            if (window.innerWidth <= 1200 && sidebar.classList.contains('visible')) {
+                sidebar.classList.remove('overlay');
+                sidebar.classList.remove('visible');
+                sidebar.style.transition = 'transform 0.9s ease';
+            }
+        });
+    });
     </script>
 </body>
 </html>
