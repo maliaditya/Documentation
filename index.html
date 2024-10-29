@@ -690,17 +690,17 @@
             }
         });
 
-        const sidebarLinks = document.querySelectorAll('#sidebar a');
-        sidebarLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                const sidebar = document.getElementById('sidebar');
-                if (window.innerWidth <= 1200 && sidebar.classList.contains('visible')) {
-                    sidebar.classList.remove('overlay');
-                    sidebar.classList.remove('visible');
-                    sidebar.style.transition = 'transform 0.9s ease';
-                }
-            });
-        });
+        document.getElementById('sidebar').addEventListener('click', (event) => {
+        if (event.target.tagName === 'A') {
+            const sidebar = document.getElementById('sidebar');
+            if (window.innerWidth <= 1200 ) {
+                sidebar.classList.remove('overlay');
+                sidebar.classList.remove('visible');
+                sidebar.style.transition = 'transform 0.9s ease';
+            }
+        }
+    });
+
     </script>
 </body>
 </html>
